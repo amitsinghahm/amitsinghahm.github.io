@@ -15,7 +15,7 @@ document.getElementById('cricket form').addEventListener('submit',submitClick);
 function submitClick(e){
 	
     e.preventDefault();
-	window.alert("hello");
+	
 	//get Values
 	var name=getInputvalue('name');
 	var branch=getInputvalue('branch');
