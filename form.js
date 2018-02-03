@@ -3,10 +3,10 @@ var config = {
     authDomain: "cricket-registration.firebaseapp.com",
     databaseURL: "https://cricket-registration.firebaseio.com",
     projectId: "cricket-registration",
-    storageBucket: "",
+    storageBucket: "cricket-registration.appspot.com",
     messagingSenderId: "165636800564"
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);
   
 var messageRef=firebase.database().ref('Player');
 
@@ -15,16 +15,18 @@ document.getElementById('cricket form').addEventListener('submit',submitClick);
 function submitClick(e){
 	
     e.preventDefault();
-	
+	window.alert("hello");
 	//get Values
 	var name=getInputvalue('name');
 	var branch=getInputvalue('branch');
 	var year=getInputvalue('year');
+	var email=getInputvalue('email');
+	var phone=getInputvalue('phone');
 	//console.log(name);
 	
 	//window.alert("hello");
 
-	saveData(name,branch,year);
+	saveData(name,branch,year,email,phone);
 	//window.alert("Your Cricket Registration Form is Submitted.");
 	
 	document.querySelector('.alert').style.display='block';
@@ -42,11 +44,13 @@ function getInputvalue(id){
 }
 
 //save Data
-function saveData(name,branch,year){
+function saveData(name,branch,year,email,phone){
 	var newmessageRef=messageRef.push();
 	newmessageRef.set({
 		Name:name,
 		p_Branch:branch,
-		p_Year:year
+		p_Year:year,
+		y_email:email,
+		y_phone:phone
 	});
 }
